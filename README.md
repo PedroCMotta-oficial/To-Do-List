@@ -1,6 +1,6 @@
 <h1 align="center">Tasker</h1>
 
-<p align="center">A desktop To-Do List</p>
+<p align="center">A website To-Do List</p>
 
 <p align="center">
   <a href="#-tecnologias">Tech</a>
