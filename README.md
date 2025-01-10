@@ -18,7 +18,7 @@ This project was developed with the following technologies:
 
 ## 💻 Project
 
-This is a desktop To-Do List, that allows users to:
+This is a website To-Do List, that allows users to:
 
 - Add todo's
 - Delete todo's
