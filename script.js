@@ -1,12 +1,15 @@
-// para botão de criação de tarefas
-const inputBox = document.getElementById("input-box");
-const tasksContainer = document.getElementById("tasks-container");
+let listsCounter = 0;
 
 // para botão de criação de listas
 const listsContainer = document.getElementById("lists-container");
 const listToBeCloned = document.getElementById("listBeta");
 
-function addTask() {
+function addTask(button) {
+  const targetList = button.closest('.list');
+  const inputBox = targetList.querySelector('#input-box');
+  const tasksContainer = targetList.querySelector('#tasks-container');
+
+
   if(inputBox.value === '') {
     alert("You must write something!");
   } else {
@@ -25,15 +28,17 @@ function addTask() {
 }
 
 function addList() {
+  listsCounter++;
   let newList = listToBeCloned.cloneNode(true);
   newList.removeAttribute('id');
+  newList.setAttribute('data-id', `list-${listsCounter}`);
   listsContainer.appendChild(newList);
   saveData();
 }
 
 
 // checagem de tarefas
-tasksContainer.addEventListener("click", function(e) {
+document.addEventListener("click", function(e) {
   if(e.target.tagName === "LI") {
     e.target.classList.toggle("checked");
     saveData();
@@ -45,9 +50,9 @@ tasksContainer.addEventListener("click", function(e) {
 
 
 function saveData() {
-  localStorage.setItem("data", tasksContainer.innerHTML);
+  localStorage.setItem("data", listsContainer.innerHTML);
 }
 function showTask() {
-  tasksContainer.innerHTML = localStorage.getItem("data");
+  listsContainer.innerHTML = localStorage.getItem("data");
 }
 showTask();
