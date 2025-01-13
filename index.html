@@ -9,24 +9,28 @@
 <body>
 
   <div class="listGenerator">
-    <button onclick="">Generate List</button>
+    <button onclick="addList()">Generate List</button>
   </div>
 
 
-  <div class="list">
-    <h2>General Tasks</h2>
-
-    <div class="creator">
-      <input type="text" id="input-box" placeholder="Add a task">
-      <button onclick="addTask()">Add</button>
+  <div id="lists-container">
+    <div class="list" id="listBeta">
+      <h2>General Tasks</h2>
+  
+      <div class="creator">
+        <input type="text" id="input-box" placeholder="Add a task">
+        <button onclick="addTask()">Add</button>
+      </div>
+  
+      <ul id="tasks-container">
+        <!--<li class="checked">Task1</li>
+        <li>Task2</li>
+        <li>Task3</li>-->
+      </ul>
     </div>
-
-    <ul id="list-container">
-      <!--<li class="checked">Task1</li>
-      <li>Task2</li>
-      <li>Task3</li>-->
-    </ul>
   </div>
+
+  
 
 
   <script src="script.js"></script>

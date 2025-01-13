@@ -1,5 +1,10 @@
+// para botão de criação de tarefas
 const inputBox = document.getElementById("input-box");
-const listContainer = document.getElementById("list-container");
+const tasksContainer = document.getElementById("tasks-container");
+
+// para botão de criação de listas
+const listsContainer = document.getElementById("lists-container");
+const listToBeCloned = document.getElementById("listBeta");
 
 function addTask() {
   if(inputBox.value === '') {
@@ -8,7 +13,7 @@ function addTask() {
     // creation of the task
     let li = document.createElement("li");
     li.innerHTML = inputBox.value;
-    listContainer.appendChild(li);
+    tasksContainer.appendChild(li);
 
     // making a delete way to the task that was created before
     let span = document.createElement("span");
@@ -19,9 +24,16 @@ function addTask() {
   saveData();
 }
 
+function addList() {
+  let newList = listToBeCloned.cloneNode(true);
+  newList.removeAttribute('id');
+  listsContainer.appendChild(newList);
+  saveData();
+}
+
 
 // checagem de tarefas
-listContainer.addEventListener("click", function(e) {
+tasksContainer.addEventListener("click", function(e) {
   if(e.target.tagName === "LI") {
     e.target.classList.toggle("checked");
     saveData();
@@ -33,9 +45,9 @@ listContainer.addEventListener("click", function(e) {
 
 
 function saveData() {
-  localStorage.setItem("data", listContainer.innerHTML);
+  localStorage.setItem("data", tasksContainer.innerHTML);
 }
 function showTask() {
-  listContainer.innerHTML = localStorage.getItem("data");
+  tasksContainer.innerHTML = localStorage.getItem("data");
 }
 showTask();
