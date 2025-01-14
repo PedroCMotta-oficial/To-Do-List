@@ -40,11 +40,20 @@ body {
 
 
 
+#lists-container {
+  margin: 100px auto;
+  display: flex;
+  max-width: 1575px;
+  justify-content: center;
+}
+
+
+
 .list {
   width: 100%;
-  max-width: 540px;
+  max-width: 500px;
   background: #fff;
-  margin: 50px auto 20px;
+  margin-bottom: 25px;
   padding: 40px 30px 70px;
   border-radius: 10px;
 }
