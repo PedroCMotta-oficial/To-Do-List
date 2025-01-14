@@ -57,11 +57,27 @@ body {
   padding: 40px 30px 70px;
   border-radius: 10px;
 }
-.list h2 {
+
+
+
+.listMenu {
+  display: flex;
+  background: #edeef0;
+  margin-bottom: 25px;
+}
+.listMenu h2 {
   color: #002765;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+}
+.listMenu input {
+  font-size: 24px;
+  border:none;
+  background: transparent;
+  outline: none;
+  color: inherit;
+  font-weight: bold;
 }
 
 

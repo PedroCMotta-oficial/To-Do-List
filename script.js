@@ -76,6 +76,67 @@ document.addEventListener("click", function(e) {
 }, false)
 
 
+// Lists title changer
+/*
+document.addEventListener('click', function(e) {
+  if(e.target && e.target.matches('.listHeader')) {
+    const header = e.target;
+    editTitle(header);
+  }
+});
+function editTitle(header) {
+  // input creation
+  const currentTitle = header.textContent;
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.value = currentTitle;
+  input.classList.add('header-input');
+
+  header.replaceWith(input);
+  input.focus();
+
+  input.addEventListener('blur', () => saveTitle(input));
+  input.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter') saveTitle(input);
+  });
+}
+function saveTitle(input) {
+  const newTitle = input.value.trim() || 'Untitled';
+  const header = document.createElement('h2');
+  header.classList.add('listHeader');
+  header.textContent = newTitle;
+
+  input.replaceWith(header);
+}
+*/
+/*
+document.getElementById("#listHeader").addEventListener("click", function() {
+  // input creation
+  const currentText = this.innerHTML;
+  const input = document.createElement("input");
+  input.type = "text";
+  input.value = currentText;
+
+  // old title to input transition
+  this.innerHTML = "";
+  this.appendChild(input);
+  input.focus();
+
+  // title changing
+  input.addEventListener("blur", function() {
+    const newTitle = input.value;
+    this.parentElement.innerHTML = newTitle;
+  })
+  input.addEventListener("keydown", function(e) {
+    if(e.key === "Enter") {
+      const newTitle = input.value;
+      this.parentElement.innerHTML = newTitle;
+    }
+  })
+})
+*/
+
+
 function saveData() {
   localStorage.setItem("data", listsContainer.innerHTML);
 }
