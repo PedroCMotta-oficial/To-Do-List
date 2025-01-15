@@ -122,6 +122,29 @@ function deleteList(button) {
 }
 
 
+// lists pinner
+function pinList(button) {
+  const targetList = button.closest('.list');
+  const listsContainer = document.getElementById('lists-container');
+  const pinnedList = targetList.classList.contains('pinned');
+  if(!pinnedList) {
+    listsContainer.insertBefore(targetList, listsContainer.firstChild);
+    targetList.classList.add('pinned');
+    button.classList.add('active');
+  } else {
+    targetList.classList.remove(targetList.classList[1]);
+    button.classList.remove(button.classList[1]);
+    // listOrganizor();
+  }
+
+  // masonry update
+  masonryInstance.reloadItems();
+  masonryInstance.layout();
+
+  saveData();
+}
+
+
 function saveData() {
   localStorage.setItem("data", listsContainer.innerHTML);
 }

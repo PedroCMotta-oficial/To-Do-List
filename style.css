@@ -87,13 +87,16 @@ body {
   width: 30px;
   height: 30px;
   font-size: 20px;
-  background: #ff5945;
+  background: #000;
   color: #fff;
   text-align: center;
   border: none;
   outline: none;
   border-radius: 50%;
   cursor: pointer;
+}
+.listPinner.active {
+  background: #ff5945;
 }
 
 
