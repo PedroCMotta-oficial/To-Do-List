@@ -60,25 +60,25 @@ body {
 
 
 
-.listMenu {
+/*.listMenu {
   display: flex;
   background: #edeef0;
   margin-bottom: 25px;
-}
-.listMenu h2 {
+}*/
+/*.listMenu*/ h2 {
   color: #002765;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
-.listMenu input {
+/*.listMenu input {
   font-size: 24px;
   border:none;
   background: transparent;
   outline: none;
   color: inherit;
   font-weight: bold;
-}
+}*/
 
 
 
