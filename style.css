@@ -83,15 +83,18 @@ body {
   color: inherit;
   font-weight: bold;
 }
-/*.listMenu span {
-  width: 40px;
-  height: 40px;
-  font-size: 22px;
-  background: #fff;
-  line-height: 40px;
+.listMenu button {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  background: #ff5945;
+  color: #fff;
   text-align: center;
+  border: none;
+  outline: none;
   border-radius: 50%;
-}*/
+  cursor: pointer;
+}
 
 
 

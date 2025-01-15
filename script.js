@@ -110,19 +110,16 @@ function saveTitle(textInput) {
 
 
 // lists deleter
-/*document.addEventListener('click', function(e) {
-  if(e.target.tagname === "SPAN" && e.target.classList === '.listDeleter') {
-    const specificSpan = e.target;
-    const listToBeDeleted = specificSpan.closest('.list');
-    listToBeDeleted.remove();
+function deleteList(button) {
+  const targetList = button.closest('.list');
+  targetList.remove();
 
-    // masonry update
-    masonryInstance.reloadItems();
-    masonryInstance.layout();
+  // masonry update
+  masonryInstance.reloadItems();
+  masonryInstance.layout();
 
-    saveData();
-  }
-})*/
+  saveData();
+}
 
 
 function saveData() {
