@@ -60,24 +60,37 @@ body {
 
 
 
-/*.listMenu {
+.listMenu {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   background: #edeef0;
   margin-bottom: 25px;
-}*/
-/*.listMenu*/ h2 {
+  border-radius: 10px;
+  padding: 10px;
+}
+.listMenu h2 {
+  background: #fff;
   color: #002765;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
 }
-/*.listMenu input {
+.listMenu input {
   font-size: 24px;
   border:none;
   background: transparent;
   outline: none;
   color: inherit;
   font-weight: bold;
+}
+/*.listMenu span {
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  background: #fff;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
 }*/
 
 
