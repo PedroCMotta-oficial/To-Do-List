@@ -134,7 +134,7 @@ function pinList(button) {
   } else {
     targetList.classList.remove(targetList.classList[1]);
     button.classList.remove(button.classList[1]);
-    // listOrganizor();
+    //listOrganizor(listsContainer);
   }
 
   // masonry update
@@ -143,6 +143,17 @@ function pinList(button) {
 
   saveData();
 }
+
+
+// lists container organizator
+/*function listOrganizor(listsContainer) {
+  const allLists = Array.from(listsContainer.getElementsByClassName('list'));
+  const pinnedLists = allLists.filter(list => list.querySelector('.listMenu .menuButtons .listPinner.active'));
+  const unpinnedLists = allLists.filter(list => !list.querySelector('.listMenu .menuButtons .listPinneractive'));
+  listsContainer.innerHTML = '';
+  pinnedLists.forEach(list => listsContainer.appendChild(list));
+  unpinnedLists.forEach(list => listsContainer.appendChild(list));
+}*/
 
 
 function saveData() {
