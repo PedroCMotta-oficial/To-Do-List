@@ -132,9 +132,9 @@ function pinList(button) {
     targetList.classList.add('pinned');
     button.classList.add('active');
   } else {
-    targetList.classList.remove(targetList.classList[1]);
-    button.classList.remove(button.classList[1]);
-    //listOrganizor(listsContainer);
+    targetList.classList.remove('pinned');
+    button.classList.remove('active');
+    updateList();
   }
 
   // masonry update
@@ -146,14 +146,18 @@ function pinList(button) {
 
 
 // lists container organizator
-/*function listOrganizor(listsContainer) {
-  const allLists = Array.from(listsContainer.getElementsByClassName('list'));
-  const pinnedLists = allLists.filter(list => list.querySelector('.listMenu .menuButtons .listPinner.active'));
-  const unpinnedLists = allLists.filter(list => !list.querySelector('.listMenu .menuButtons .listPinneractive'));
-  listsContainer.innerHTML = '';
-  pinnedLists.forEach(list => listsContainer.appendChild(list));
-  unpinnedLists.forEach(list => listsContainer.appendChild(list));
-}*/
+function updateList() {
+  const listsContainer = document.getElementById('lists-container');
+  const pinnedLists = Array.from(listsContainer.querySelectorAll('.list.pinned'));
+
+  pinnedLists.forEach(list => {
+    listsContainer.prepend(list);
+  })
+  
+  // masonry update
+  masonryInstance.reloadItems();
+  masonryInstance.layout();
+}
 
 
 function saveData() {
