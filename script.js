@@ -16,6 +16,8 @@ const listsContainer = document.getElementById("lists-container");
 const listToBeCloned = document.getElementById("listBeta");
 
 
+
+// task modifiers
 function addTask(button) {
   const targetList = button.closest('.list');
   const inputBox = targetList.querySelector('#input-box');
@@ -24,15 +26,31 @@ function addTask(button) {
   if(inputBox.value === '') {
     alert("You must write something!");
   } else {
-    // creation of the task
-    let li = document.createElement("li");
-    li.innerHTML = inputBox.value;
-    tasksContainer.appendChild(li);
+    const li = document.createElement('li');
 
-    // deleting way to the task
-    let span = document.createElement("span");
-    span.innerHTML = "\u00d7";
-    li.appendChild(span);
+    // items instanciation
+    const checkmark = document.createElement('span');
+    checkmark.classList.add('checkmark');
+    checkmark.onclick = function() {
+      toggleCheck(this);
+    };
+    const taskText = document.createElement('span');
+    taskText.classList.add('taskText');
+    taskText.textContent = inputBox.value;
+    taskText.onclick = function() {
+      editTask(this);
+    };
+    const deleteButton = document.createElement('span');
+    deleteButton.classList.add('deleteButton');
+    deleteButton.onclick = function() {
+      deleteTask(this);
+    };
+
+    // items transfer
+    li.appendChild(checkmark);
+    li.appendChild(taskText);
+    li.appendChild(deleteButton);
+    tasksContainer.appendChild(li);
   }
   inputBox.value = "";
 
@@ -41,9 +59,62 @@ function addTask(button) {
   masonryInstance.layout();
 
   saveData();
+
+}
+function toggleCheck(checkmark) { // função de mudança de checkmark da tarefa
+  checkmark.classList.toggle('checked');
+
+  // task text changer
+  const taskText = checkmark.parentElement.querySelector('.taskText');
+  if(taskText) {
+    if(checkmark.classList.contains('checked')) {
+      taskText.style.textDecoration = 'line-through';
+      taskText.style.color = '#aaa';
+    } else {
+      taskText.style.textDecoration = 'none';
+      taskText.style.color = '#000';
+    }
+  }
+  saveData();
+}
+function editTask(taskText) { // função de modificação do texto da tarefa e seu auxiliar(replacer)
+  const currentText = taskText.textContent;
+
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.placeholder = currentText;
+  taskText.replaceWith(input);
+  input.focus();
+
+  input.addEventListener('blur', () => {
+    const newText = input.value || 'Untitled';
+    replacer(input, newText);
+  });
+  input.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter') {input.blur()}
+  });
+
+  function replacer(input, newText) {
+    const newSpan = document.createElement('span');
+    newSpan.textContent = newText;
+    newSpan.classList.add('taskText');
+    newSpan.onclick = function() {
+      editTask(this);
+    };
+
+    input.replaceWith(newSpan);
+    saveData();
+  }
+}
+function deleteTask(deleteButton) { // função de exclusão da tarefa
+  const task = deleteButton.closest('li');
+  task.remove();
+  saveData();
 }
 
 
+
+// lists creator function
 function addList() {
   listsCounter++;
   let newList = listToBeCloned.cloneNode(true);
@@ -58,22 +129,6 @@ function addList() {
   saveData();
 }
 
-
-// task checking
-document.addEventListener("click", function(e) {
-  if(e.target.tagName === "LI") {
-    e.target.classList.toggle("checked");
-    saveData();
-  } else if(e.target.tagName === "SPAN") {
-    e.target.parentElement.remove();
-
-    // masonry update
-    masonryInstance.reloadItems();
-    masonryInstance.layout();
-
-    saveData();
-  }
-}, false)
 
 
 // Lists title changer

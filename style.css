@@ -130,6 +130,7 @@ body {
 
 
 
+/*
 #tasks-container li {
   list-style: none;
   font-size: 17px;
@@ -170,5 +171,46 @@ body {
   border-radius: 50%;
 }
 #tasks-container li span:hover {
+  background: #edeef0;
+}
+*/
+
+#tasks-container li {
+  position: relative;
+  display: flex;
+  padding: 12px 8px;
+  list-style: none;
+  font-size: 17px;
+  user-select: none;
+  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #000;
+}
+#tasks-container li .checkmark{
+  content: '';
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url();
+  background-size: cover;
+  background-position: center;
+  margin-right: 10px;
+  background: #edeef0;
+}
+#tasks-container li .taskText {
+  flex: 1;
+  text-align: left;
+  border: 1px solid #000;
+}
+#tasks-container li .deleteButton {
+  content: '';
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url();
+  background-size: cover;
+  background-position: center;
+  margin-left: 10px;
   background: #edeef0;
 }
