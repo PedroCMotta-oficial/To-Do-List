@@ -218,13 +218,14 @@ function updateList() {
 function saveData() {
   localStorage.setItem("data", listsContainer.innerHTML);
 }
-function showTask() {
+function showData() {
   listsContainer.innerHTML = localStorage.getItem("data");
   
-  // layout calc with timeout adjustments
-  setTimeout(function() {
+  requestAnimationFrame(() => {
     masonryInstance.reloadItems();
     masonryInstance.layout();
-  }, 200)
+  })
 }
-showTask();
+document.addEventListener('DOMContentLoaded', () => {
+  showData();
+})
