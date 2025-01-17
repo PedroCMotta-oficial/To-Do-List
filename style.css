@@ -13,7 +13,7 @@ html, body {
 }
 
 body {
-  background: linear-gradient(135deg, rgba(0,97,255,1) 0%, rgba(113,0,255,1) 50%, rgba(211,0,255,1) 100%);
+  background: linear-gradient(135deg, rgba(33,118,117,1) 0%, rgba(74,100,89,1) 50%, rgba(44,61,54,1) 100%);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -31,9 +31,10 @@ body {
   border: none;
   outline: none;
   padding: 16px 50px;
-  background: #ff5945;
-  color: #fff;
+  background: #7f4c5d;
+  color: #ffe2b9;
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   border-radius: 40px;
 }
@@ -52,7 +53,7 @@ body {
 .list {
   width: 100%;
   max-width: 500px;
-  background: #fff;
+  background: #ffe2b9;
   margin-bottom: 25px;
   padding: 40px 30px 70px;
   border-radius: 10px;
@@ -64,15 +65,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #edeef0;
+  background-color: inherit;
   margin-bottom: 25px;
   border-radius: 10px;
   padding: 10px;
 }
 .listMenu h2 {
-  background: #fff;
-  color: #002765;
-  display: flex;
+  flex: 1;
+  color: #1C274C;
   align-items: center;
 }
 .listMenu input {
@@ -83,20 +83,26 @@ body {
   color: inherit;
   font-weight: bold;
 }
+.listMenu .menuButtons {
+  display: flex;
+  width: 70px;
+  align-items: center;
+  justify-content: space-between;
+}
 .listMenu button {
   width: 30px;
   height: 30px;
   font-size: 20px;
-  background: #000;
-  color: #fff;
   text-align: center;
   border: none;
   outline: none;
   border-radius: 50%;
   cursor: pointer;
+  background: inherit;
+  color: #000;
 }
-.listPinner.active {
-  background: #ff5945;
+.listMenu button:hover {
+  background: #f1a629;
 }
 
 
@@ -105,7 +111,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #edeef0;
+  background: #f1a629;
   border-radius: 30px;
   padding-left: 20px;
   margin-bottom: 25px;
@@ -116,64 +122,21 @@ body {
   outline: none;
   background: transparent;
   padding: 10px;
+  color: #1C274C;
 }
 .creator button {
   border: none;
   outline: none;
   padding: 16px 50px;
-  background: #ff5945;
-  color: #fff;
+  background: #7f4c5d;
+  color: #ffe2b9;
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   border-radius: 40px;
 }
 
 
-
-/*
-#tasks-container li {
-  list-style: none;
-  font-size: 17px;
-  padding: 12px 8px 12px 50px;
-  user-select: none;
-  cursor: pointer;
-  position: relative;
-}
-#tasks-container li::before {
-  content: '';
-  position: absolute;
-  height: 28px;
-  width: 28px;
-  border-radius: 50%;
-  background-image: url();
-  background-size: cover;
-  background-position: center;
-  top: 12px;
-  left: 8px;
-}
-#tasks-container li.checked:before {
-  background-image: url();
-}
-#tasks-container li.checked {
-  color: #555;
-  text-decoration: line-through;
-}
-#tasks-container li span {
-  position: absolute;
-  right: 0;
-  top: 5px;
-  width: 40px;
-  height: 40px;
-  font-size: 22px;
-  color: #555;
-  line-height: 40px;
-  text-align: center;
-  border-radius: 50%;
-}
-#tasks-container li span:hover {
-  background: #edeef0;
-}
-*/
 
 #tasks-container li {
   position: relative;
@@ -185,32 +148,35 @@ body {
   cursor: pointer;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid #000;
 }
 #tasks-container li .checkmark{
-  content: '';
   height: 28px;
   width: 28px;
   border-radius: 50%;
-  background-image: url();
-  background-size: cover;
-  background-position: center;
-  margin-right: 10px;
-  background: #edeef0;
+  margin-right: 15px;
+  background: #f1a629;
+}
+#tasks-container li .checkmark:hover {
+  background: #7f4c5d;
 }
 #tasks-container li .taskText {
+  color: #1C274C;
   flex: 1;
   text-align: left;
-  border: 1px solid #000;
 }
 #tasks-container li .deleteButton {
-  content: '';
-  height: 28px;
-  width: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
-  background-image: url();
-  background-size: cover;
-  background-position: center;
-  margin-left: 10px;
-  background: #edeef0;
+  margin-left: 15px;
+  background: none;
+  font-weight: 200;
+  line-height: 15px;
+  font-size: 25px;
+}
+#tasks-container li .deleteButton:hover {
+  background: #f1a629;
 }

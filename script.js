@@ -41,6 +41,7 @@ function addTask(button) {
       editTask(this);
     };
     const deleteButton = document.createElement('span');
+    deleteButton.textContent = '\u00d7';
     deleteButton.classList.add('deleteButton');
     deleteButton.onclick = function() {
       deleteTask(this);
