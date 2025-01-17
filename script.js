@@ -199,10 +199,7 @@ function pinList(button) {
 
   saveData();
 }
-
-
-// lists container organizator
-function updateList() {
+function updateList() { // lists container organizator
   const listsContainer = document.getElementById('lists-container');
   const pinnedLists = Array.from(listsContainer.querySelectorAll('.list.pinned'));
 

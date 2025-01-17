@@ -200,6 +200,15 @@ body {
   flex: 1;
   text-align: left;
 }
+#tasks-container li input {
+  flex: 1;
+  font-size: inherit;
+  border:none;
+  background: transparent;
+  outline: none;
+  color: inherit;
+  text-align: left;
+}
 #tasks-container li .deleteButton {
   display: flex;
   justify-content: center;
