@@ -104,6 +104,36 @@ body {
 .listMenu button:hover {
   background: #f1a629;
 }
+.listMenu .listDeleter {
+  background-image: url(images/trash\ bin.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.listMenu .listDeleter:hover {
+  background-image: url(images/trash\ bin.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.listMenu .listPinner {
+  background-image: url(images/bookmark\ unactive.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.listMenu .listPinner:hover {
+  background-image: url(images/bookmark\ unactive.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.listMenu .listPinner.active {
+  background-image: url(images/bookmark\ active.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
 
 
 
@@ -157,7 +187,13 @@ body {
   background: #f1a629;
 }
 #tasks-container li .checkmark:hover {
-  background: #7f4c5d;
+  background: #4a6459;
+}
+#tasks-container li .checkmark.checked {
+  background-image: url(images/check\ circle.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 #tasks-container li .taskText {
   color: #1C274C;
@@ -168,6 +204,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
   height: 30px;
   width: 30px;
   border-radius: 50%;
