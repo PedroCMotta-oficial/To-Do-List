@@ -31,6 +31,8 @@ This is a website To-Do List, that allows users to:
 - Manipulate tasks in each list
 
 All the data is store in the browser's localStorage
+Project updating to version v2.0.
+- The project will have a backend, storing data in Google Firebase
 
 Tasker is full-time ordenred by the masonry layout library
 
