@@ -4,3 +4,4 @@ information.txt
 progression.txt
 
 node_modules/
+backend/package-lock.json
