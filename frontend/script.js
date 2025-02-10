@@ -227,3 +227,13 @@ function showData() {
 document.addEventListener('DOMContentLoaded', () => {
   showData();
 })
+
+
+fetch('http://localhost:9000')
+  .then(response => response.text())
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('Erro na conexão com o backend: ', error);
+  })
