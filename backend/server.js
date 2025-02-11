@@ -7,10 +7,6 @@ const appAPI = require('./todo_app_API');
 
 app.use(cors())
 
-app.get('/', (req, res) => {
-  res.send('Backend está funcionando!');
-});
-
 app.use(express.json());
 app.use('/api', appAPI);
 
