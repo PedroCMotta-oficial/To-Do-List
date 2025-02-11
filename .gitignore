@@ -4,3 +4,6 @@ information.txt
 progression.txt
 
 node_modules/
+
+db.js
+.env
