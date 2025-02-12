@@ -22,33 +22,23 @@ This project was developed with the following technologies:
 - CSS
 - JAVASCRIPT
 - Masonry Cascading grid layout library - https://masonry.desandro.com/
+- Node.js
+- Express Framework
+- CORS policy
+- MySQL
 
 
 ## 💻 Project
 
 This is a website To-Do List, that allows users to:
-- Creation of To-Do Lists
+- Create todo lists
 - Manipulate tasks in each list
 
-All the data is store in the browser's localStorage
-Project updating to version v2.0.
-- The project will have a backend, storing data in Google Firebase
+All the data is stored in a local database
 
-Tasker is full-time ordenred by the masonry layout library
+Tasker is full-time ordened by the masonry layout library
 
 
 ## 📜 Usage
 
-Press the "Generate List" button to create a new list
-
-By clicking the list title, you'll be able to edit it to the title you want
-
-By clicking the bookmark, you'll be able to pin the title and let it stay in the beginning
-
-By clicking the trash bin, you'll be able to exclude the list
-
-By adding a new task text and clicking the add button, you'll be able to create a new task
-
-By clicking the task text left button, you'll be able to check or uncheck it
-
-By clicking the task text right button, you'll delete the task
+The website has a link for the user's guide
