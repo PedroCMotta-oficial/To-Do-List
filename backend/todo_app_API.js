@@ -38,6 +38,21 @@ router.put('/lists/:id', (req, res) => { // modificação do nome da lista
     res.status(200).json({id, name});
   })
 })
+router.patch('/lists/:id/toggle-pinned', (req, res) => { // alternar pin da lista
+  const {id} = req.params;
+
+  db.query('SELECT pinned FROM lists WHERE id = ?', [id], (err, result) => {
+    const list = result[0];
+    const newStatus = !list.pinned;
+    
+    db.query('UPDATE lists SET pinned = ? WHERE id = ?', [newStatus, id], (err, result) => {
+      if(err) {
+        return res.status(500).json({error: 'Erro ao alterar status da lista!'});
+      }
+      res.json({message: 'Status da lista alterado!', pinned: newStatus});
+    })
+  });
+})
 router.delete('/lists/:id', (req, res) => {
   const {id} = req.params;
   const sql = 'DELETE FROM lists WHERE id = ?';
@@ -90,15 +105,9 @@ router.patch('/tasks/:id/toggle-complete', (req, res) => { // alternar completud
   const {id} = req.params;
 
   db.query('SELECT completed FROM tasks WHERE id = ?', [id], (err, result) => {
-    if(err) {
-      return res.status(500).json({error: 'Erro ao buscar tarefa!'});
-    }
-    if(result.length === 0) {
-      return res.status(404).json({error: 'Tarefa não encontrada!'});
-    }
-
     const task = result[0];
     const newStatus = !task.completed;
+
     db.query('UPDATE tasks SET completed = ? WHERE id = ?', [newStatus, id], (err, result) => {
       if(err) {
         return res.status(500).json({error: 'Erro ao alterar status da tarefa!'});
