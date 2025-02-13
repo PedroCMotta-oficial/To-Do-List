@@ -1,6 +1,6 @@
 import {getLists, getTasks} from './API_connector';
 
-async function fetchData() {
+async function fetchData(listsContainer) {
   // catch all lists
   const LResponse = getLists();
   const lists = await LResponse.json();
@@ -11,16 +11,16 @@ async function fetchData() {
 
   // list-tasks association
   const listsWithTasks = lists.map(list => ({
-    ...lists,
+    ...list,
     tasks: tasks.filter(task => task.list_id === list.id),
   }));
 
-  renderLists(listsWithTasks);
+  renderLists(listsWithTasks, listsContainer);
 
-  function renderLists(lists) {
+  function renderLists(lists, listsContainer) {
     listsContainer.innerHTML = '';
 
-    lists.foreach(list => {
+    lists.forEach(list => {
       const listElement = document.createElement('div');
       listElement.classList.add('list');
       listElement.dataset.id = list.id;
