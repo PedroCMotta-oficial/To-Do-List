@@ -73,7 +73,7 @@ router.delete('/lists/:id', (req, res) => {
 router.get('/tasks', (req, res) => { // mostrar tarefas
   db.query('SELECT * FROM tasks', (err, results) => {
     if(err) {
-      return res.status(500).json({error: err.mesage});
+      return res.status(500).json({error: err.message});
     }
     res.json(results);
   })
@@ -124,7 +124,7 @@ router.delete('/tasks/:id', (req, res) => {
     if(err) {
       return res.status(500).json({error: err.message});
     }
-    res.status(200).json({message: 'Lista deletada!'});
+    res.status(200).json({message: 'Tarefa deletada!'});
   })
 })
 
