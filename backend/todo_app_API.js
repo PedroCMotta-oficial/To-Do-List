@@ -79,7 +79,7 @@ router.get('/tasks', (req, res) => { // mostrar tarefas
   })
 })
 router.post('/tasks', (req, res) => { // criação de uma nova tarefa
-  const {list_id, title, completed} = req.body;
+  const {list_id, title} = req.body;
   const sql = 'INSERT INTO tasks (list_id, title) VALUES (?, ?)';
 
   db.query(sql, [list_id, title], (err, result) => {

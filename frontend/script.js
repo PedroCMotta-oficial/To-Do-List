@@ -122,6 +122,10 @@ function editTask(taskText) { // função de modificação do texto da tarefa e 
 function deleteTask(deleteButton) { // função de exclusão da tarefa
   const task = deleteButton.closest('li');
   task.remove();
+
+  const taskId = task.dataset.id;
+  deleteTaskAPI(taskId);
+
   saveData();
 }
 
@@ -182,6 +186,9 @@ function deleteList(button) {
   const targetList = button.closest('.list');
   targetList.remove();
 
+  const listId = targetList.dataset.id;
+  deleteListAPI(listId);
+
   // masonry update
   masonryInstance.reloadItems();
   masonryInstance.layout();
@@ -204,6 +211,9 @@ function pinList(button) {
     button.classList.remove('active');
     updateList();
   }
+
+  const listId = targetList.dataset.id;
+  toggleListPinAPI(listId);
 
   // masonry update
   masonryInstance.reloadItems();
@@ -242,3 +252,6 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 window.toggleCheck = toggleCheck;
+window.pinList = pinList;
+window.deleteList = deleteList;
+window.deleteTask = deleteTask;
