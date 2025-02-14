@@ -1,4 +1,8 @@
 import {fetchData} from './appData.js';
+import {
+  addListAPI, changeListNameAPI, toggleListPinAPI, deleteListAPI,
+  addTaskAPI, changeTaskNameAPI, toggleTaskCompleteAPI, deleteTaskAPI
+} from './API_connector.js';
 
 
 // masonry library initialization
@@ -79,6 +83,11 @@ function toggleCheck(checkmark) { // função de mudança de checkmark da tarefa
       taskText.style.color = '#000';
     }
   }
+
+  const taskElement = checkmark.parentElement;
+  const taskId = taskElement.dataset.id;
+  toggleTaskCompleteAPI(taskId);
+
   saveData();
 }
 function editTask(taskText) { // função de modificação do texto da tarefa e seu auxiliar(replacer)
@@ -220,7 +229,6 @@ function saveData() {
   localStorage.setItem("data", listsContainer.innerHTML);
 }
 async function showData() {
-  /*listsContainer.innerHTML = localStorage.getItem("data");*/
   await fetchData(listsContainer);
   updateList();
   
@@ -232,3 +240,5 @@ async function showData() {
 document.addEventListener('DOMContentLoaded', () => {
   showData();
 })
+
+window.toggleCheck = toggleCheck;

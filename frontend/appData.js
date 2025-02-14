@@ -1,15 +1,15 @@
-import {getLists, getTasks} from './API_connector.js';
+import {getListsAPI, getTasksAPI} from './API_connector.js';
 
 async function fetchData(listsContainer) {
   // catch all lists
   /*const LResponse = getLists();
   const lists = await LResponse.json();*/
-  const lists = await getLists();
+  const lists = await getListsAPI();
 
   // catch all tasks
   /*const TResponse = getTasks();
   const tasks = await TResponse.json();*/
-  const tasks = await getTasks();
+  const tasks = await getTasksAPI();
 
   console.log("Lists:", lists);
   console.log("Tasks:", tasks);
@@ -50,7 +50,7 @@ async function fetchData(listsContainer) {
 
         <ul id="tasks-container">
           ${list.tasks.map(task => `
-            <li>
+            <li data-id="${task.id}">
               <span class="checkmark ${task.completed ? 'checked' : ''}" onclick="toggleCheck(this)"></span>
               <span class="taskText" onclick="editTask(this)">${task.title}</span>
               <span class="deleteButton" onclick="deleteTask(this)">\u00d7</span>
