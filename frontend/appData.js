@@ -1,13 +1,19 @@
-import {getLists, getTasks} from './API_connector';
+import {getLists, getTasks} from './API_connector.js';
 
 async function fetchData(listsContainer) {
   // catch all lists
-  const LResponse = getLists();
-  const lists = await LResponse.json();
+  /*const LResponse = getLists();
+  const lists = await LResponse.json();*/
+  const lists = await getLists();
 
   // catch all tasks
-  const TResponse = getTasks();
-  const tasks = await TResponse.json();
+  /*const TResponse = getTasks();
+  const tasks = await TResponse.json();*/
+  const tasks = await getTasks();
+
+  console.log("Lists:", lists);
+  console.log("Tasks:", tasks);
+
 
   // list-tasks association
   const listsWithTasks = lists.map(list => ({

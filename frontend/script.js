@@ -1,3 +1,6 @@
+import {fetchData} from './appData.js';
+
+
 // masonry library initialization
 let masonryInstance;
 document.addEventListener('DOMContentLoaded', function () {
@@ -217,7 +220,9 @@ function saveData() {
   localStorage.setItem("data", listsContainer.innerHTML);
 }
 function showData() {
-  listsContainer.innerHTML = localStorage.getItem("data");
+  /*listsContainer.innerHTML = localStorage.getItem("data");*/
+
+  fetchData(listsContainer);
   
   requestAnimationFrame(() => {
     masonryInstance.reloadItems();
