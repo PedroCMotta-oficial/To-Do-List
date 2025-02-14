@@ -219,10 +219,9 @@ function updateList() { // lists container organizator
 function saveData() {
   localStorage.setItem("data", listsContainer.innerHTML);
 }
-function showData() {
+async function showData() {
   /*listsContainer.innerHTML = localStorage.getItem("data");*/
-
-  fetchData(listsContainer);
+  await fetchData(listsContainer);
   
   requestAnimationFrame(() => {
     masonryInstance.reloadItems();

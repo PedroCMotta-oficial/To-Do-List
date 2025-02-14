@@ -45,17 +45,20 @@ async function fetchData(listsContainer) {
           <button onclick="addTask(this)">Add</button>
         </div>
 
-        <ul class="tasks-container">
+        <ul id="tasks-container">
           ${list.tasks.map(task => `
             <li>
-              <span class="checkmark" onclick="toggleCheck(this)"></span>
-              <span class="taskText" onclick="editTask(this)">${task.name}</span>
-              <span class="deleteButton" onclick="deleteTask(this)"></span>
+              <span class="checkmark checked" onclick="toggleCheck(this)"></span>
+              <span class="taskText" onclick="editTask(this)">${task.title}</span>
+              <span class="deleteButton" onclick="deleteTask(this)">\u00d7</span>
             </li>`).join("")}
         </ul>
       `;
 
       listsContainer.appendChild(listElement);
+
+      console.log('HTML gerado:', listElement.innerHTML);
+
     });
   }
 }
