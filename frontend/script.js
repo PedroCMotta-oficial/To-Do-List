@@ -139,6 +139,9 @@ function addList() {
   newList.setAttribute('data-id', `list-${listsCounter}`);
   listsContainer.appendChild(newList);
 
+  const listName = 'Task List';
+  addListAPI(listName);
+
   // masonry update
   masonryInstance.reloadItems();
   masonryInstance.layout();
@@ -255,3 +258,4 @@ window.toggleCheck = toggleCheck;
 window.pinList = pinList;
 window.deleteList = deleteList;
 window.deleteTask = deleteTask;
+window.addList = addList;
