@@ -29,13 +29,16 @@ async function fetchData(listsContainer) {
     lists.forEach(list => {
       const listElement = document.createElement('div');
       listElement.classList.add('list');
+      if(list.pinned === 1) {
+        listElement.classList.add('pinned');
+      }
       listElement.dataset.id = list.id;
 
       listElement.innerHTML = `
         <div class="listMenu">
           <h2 class="listHeader">${list.name}</h2>
           <div class="menuButtons">
-            <button class="listPinner" onclick="pinList(this)"></button>
+            <button class="listPinner ${list.pinned ? 'active' : ''}" onclick="pinList(this)"></button>
             <button class="listDeleter" onclick="deleteList(this)"></button>
           </div>
         </div>
@@ -48,7 +51,7 @@ async function fetchData(listsContainer) {
         <ul id="tasks-container">
           ${list.tasks.map(task => `
             <li>
-              <span class="checkmark checked" onclick="toggleCheck(this)"></span>
+              <span class="checkmark ${task.completed ? 'checked' : ''}" onclick="toggleCheck(this)"></span>
               <span class="taskText" onclick="editTask(this)">${task.title}</span>
               <span class="deleteButton" onclick="deleteTask(this)">\u00d7</span>
             </li>`).join("")}

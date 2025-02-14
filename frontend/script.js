@@ -222,6 +222,7 @@ function saveData() {
 async function showData() {
   /*listsContainer.innerHTML = localStorage.getItem("data");*/
   await fetchData(listsContainer);
+  updateList();
   
   requestAnimationFrame(() => {
     masonryInstance.reloadItems();
