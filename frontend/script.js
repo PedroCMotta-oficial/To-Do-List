@@ -121,9 +121,11 @@ function editTask(taskText) { // função de modificação do texto da tarefa e 
 
     input.replaceWith(newSpan);
     saveData();
-  }
 
-  changeTaskNameAPI
+    const taskElement = newSpan.parentElement;
+    const taskId = taskElement.dataset.id;
+    changeTaskNameAPI(taskId, newText);
+  }
 }
 function deleteTask(deleteButton) { // função de exclusão da tarefa
   const task = deleteButton.closest('li');
@@ -175,19 +177,27 @@ function editTitle(listHeader) {
 
   textInput.addEventListener('blur', () => {saveTitle(textInput)} )
   textInput.addEventListener('keydown', (e) => {
-    if(e.key === "Enter") {saveTitle(textInput)}
+    if(e.key === "Enter") {textInput.blur()}
   })
-}
-function saveTitle(textInput) {
-  const newTitle = textInput.value || 'Untitled';
-  const newHeader = document.createElement('h2');
-  
-  newHeader.classList.add('listHeader');
-  newHeader.textContent = newTitle;
-  textInput.replaceWith(newHeader);
 
-  saveData();
+  function saveTitle(textInput) {
+    const newTitle = textInput.value || 'Untitled';
+    const newHeader = document.createElement('h2');
+    
+    newHeader.classList.add('listHeader');
+    newHeader.textContent = newTitle;
+    textInput.replaceWith(newHeader);
+  
+    saveData();
+  
+    console.log(newHeader);
+    const targetList = newHeader.closest('.list');
+    console.log(targetList);
+    const listId = targetList.dataset.id;
+    changeListNameAPI(listId, newTitle);
+  }
 }
+
 
 
 // lists deleter
@@ -260,9 +270,13 @@ document.addEventListener('DOMContentLoaded', () => {
   showData();
 })
 
-window.toggleCheck = toggleCheck;
+
+// controladores
+window.addList = addList;
 window.pinList = pinList;
 window.deleteList = deleteList;
+
+window.addTask = addTask;
+window.editTask = editTask;
+window.toggleCheck = toggleCheck;
 window.deleteTask = deleteTask;
-window.addList = addList;
-window.addTask = addTask
