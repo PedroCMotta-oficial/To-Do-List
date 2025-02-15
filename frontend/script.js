@@ -69,9 +69,6 @@ function addTask(button) {
   // masonry update
   masonryInstance.reloadItems();
   masonryInstance.layout();
-
-  saveData();
-
 }
 function toggleCheck(checkmark) { // função de mudança de checkmark da tarefa
   checkmark.classList.toggle('checked');
@@ -91,8 +88,6 @@ function toggleCheck(checkmark) { // função de mudança de checkmark da tarefa
   const taskElement = checkmark.parentElement;
   const taskId = taskElement.dataset.id;
   toggleTaskCompleteAPI(taskId);
-
-  saveData();
 }
 function editTask(taskText) { // função de modificação do texto da tarefa e seu auxiliar(replacer)
   const currentText = taskText.textContent;
@@ -120,7 +115,6 @@ function editTask(taskText) { // função de modificação do texto da tarefa e 
     };
 
     input.replaceWith(newSpan);
-    saveData();
 
     const taskElement = newSpan.parentElement;
     const taskId = taskElement.dataset.id;
@@ -133,8 +127,6 @@ function deleteTask(deleteButton) { // função de exclusão da tarefa
 
   const taskId = task.dataset.id;
   deleteTaskAPI(taskId);
-
-  saveData();
 }
 
 
@@ -153,8 +145,6 @@ function addList() {
   // masonry update
   masonryInstance.reloadItems();
   masonryInstance.layout();
-
-  saveData();
 }
 
 
@@ -188,8 +178,6 @@ function editTitle(listHeader) {
     newHeader.textContent = newTitle;
     textInput.replaceWith(newHeader);
   
-    saveData();
-  
     console.log(newHeader);
     const targetList = newHeader.closest('.list');
     console.log(targetList);
@@ -211,9 +199,8 @@ function deleteList(button) {
   // masonry update
   masonryInstance.reloadItems();
   masonryInstance.layout();
-
-  saveData();
 }
+
 
 
 // lists pinner
@@ -237,8 +224,6 @@ function pinList(button) {
   // masonry update
   masonryInstance.reloadItems();
   masonryInstance.layout();
-
-  saveData();
 }
 function updateList() { // lists container organizator
   const listsContainer = document.getElementById('lists-container');
@@ -254,9 +239,7 @@ function updateList() { // lists container organizator
 }
 
 
-function saveData() {
-  localStorage.setItem("data", listsContainer.innerHTML);
-}
+
 async function showData() {
   await fetchData(listsContainer);
   updateList();

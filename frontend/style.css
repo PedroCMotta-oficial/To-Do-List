@@ -200,6 +200,10 @@ body {
   flex: 1;
   text-align: left;
 }
+#tasks-container li .checkmark.checked + .taskText {
+  text-decoration: line-through;
+  color: #aaa;
+}
 #tasks-container li input {
   flex: 1;
   font-size: inherit;
