@@ -27,7 +27,7 @@ const listToBeCloned = document.getElementById("listBeta");
 // task modifiers
 function addTask(button) {
   const targetList = button.closest('.list');
-  const inputBox = targetList.querySelector('#input-box');
+  const inputBox = targetList.querySelector('.input-box');
   const tasksContainer = targetList.querySelector('#tasks-container');
 
   if(inputBox.value === '') {
@@ -60,6 +60,10 @@ function addTask(button) {
     li.appendChild(deleteButton);
     tasksContainer.appendChild(li);
   }
+
+  const listId = targetList.dataset.id;
+  addTaskAPI(inputBox.value, listId);
+
   inputBox.value = "";
 
   // masonry update
@@ -259,3 +263,4 @@ window.pinList = pinList;
 window.deleteList = deleteList;
 window.deleteTask = deleteTask;
 window.addList = addList;
+window.addTask = addTask
