@@ -70,7 +70,7 @@ export async function changeTaskNameAPI(id, newTitle) {
 }
 // COMPLETED TOGGLE
 export async function toggleTaskCompleteAPI(id) {
-  const response = await fetch(`${API_URL_TASKS}/${id}/toggle-complete`, {method: 'PATCH'});
+  const response = await fetch(`${API_URL_TASKS}/${id}/toggle-complete`, {method: 'PATCH',});
   return response.json();
 }
 // DELETE

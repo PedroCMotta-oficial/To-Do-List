@@ -122,6 +122,8 @@ function editTask(taskText) { // função de modificação do texto da tarefa e 
     input.replaceWith(newSpan);
     saveData();
   }
+
+  changeTaskNameAPI
 }
 function deleteTask(deleteButton) { // função de exclusão da tarefa
   const task = deleteButton.closest('li');
